@@ -27,14 +27,25 @@
                 "unit": { "const": "derived" },
                 "name": { "$ref": "#/definitions/unit_name" },
                 "abbv": { "$ref": "#/definitions/unit_name" },
-                "coef": {
-                    "type": "number",
-                    "exclusiveMinimum": 0
-                },
+                "coef": { "$ref": "#/definitions/unit_coef" },
                 "expr": { "$ref": "#/definitions/unit_expr" }
             },
             "required": ["unit", "name", "coef", "expr"]
         },
+        "unit_coef_rational": {
+            "type": "object",
+            "properties": {
+                "coef": { "const": "rational" },
+                "num": { "type": "integer", "exclusiveMinimum": 0 },
+                "den": { "type": "integer", "exclusiveMinimum": 0 }
+            },
+            "required": ["coef", "num", "den"]
+        },
+        "unit_coef": { "anyOf": [
+            { "type" : "integer", "exclusiveMinimum": 0 },
+            { "type" : "number", "exclusiveMinimum": 0.0 },
+            { "$ref": "#/definitions/unit_coef_rational" }
+        ]},
         "unit_expr_mul": {
             "type": "object",
             "properties": {
