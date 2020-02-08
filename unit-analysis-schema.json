@@ -1,0 +1,82 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+
+    "$id": "https://github.com/erikerlandson/unit-analysis-json-schema/unit-analysis-schema.json",
+
+    "title": "Unit Analysis",
+
+    "description": "Defines a list of unit definitions to do unit analysis over",
+
+    "definitions": {
+        "unit_name": {
+            "type": "string",
+            "pattern": "^([a-z]|[A-Z])([a-z]|[A-Z]|[0-9])*$"
+        },
+        "base_unit": {
+            "type": "object",
+            "properties": {
+                "unit": { "const": "base" },
+                "name": { "$ref": "#/definitions/unit_name" },
+                "abbv": { "$ref": "#/definitions/unit_name" }
+            },
+            "required": ["name"]
+        },
+        "derived_unit": {
+            "type": "object",
+            "properties": {
+                "unit": { "const": "derived" },
+                "name": { "$ref": "#/definitions/unit_name" },
+                "abbv": { "$ref": "#/definitions/unit_name" },
+                "coef": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                },
+                "expr": { "$ref": "#/definitions/unit_expr" }
+            }
+            "required": ["name", "coef", "expr"]
+        },
+        "unit_expr_mul": {
+            "type": "object",
+            "properties": {
+                "op": { "const": "*" },
+                "lhs": { "$ref": "#/definitions/unit_expr" },
+                "rhs": { "$ref": "#/definitions/unit_expr" }
+            },
+            "required": ["op", "lhs", "rhs"]
+        },
+        "unit_expr_div": {
+            "type": "object",
+            "properties": {
+                "op": { "const": "/" },
+                "lhs": { "$ref": "#/definitions/unit_expr" },
+                "rhs": { "$ref": "#/definitions/unit_expr" }
+            },
+            "required": ["op", "lhs", "rhs"]
+        },
+        "unit_expr_pow": {
+            "type": "object",
+            "properties": {
+                "op": { "const": "^" },
+                "lhs": { "$ref": "#/definitions/unit_expr" },
+                "rhs": { "type": "integer" }
+            },
+            "required": ["op", "lhs", "rhs"]
+        },
+        "unitless": { "const": "unitless" },
+        "unit_expr": { "anyOf" [
+            { "$ref": "#/definitions/unitless" },
+            { "$ref": "#/definitions/unit_name" }
+            { "$ref": "#/definitions/unit_expr_mul" },
+            { "$ref": "#/definitions/unit_expr_div" },
+            { "$ref": "#/definitions/unit_expr_pow" }
+        ]}
+    },
+
+    "type": "array",
+    "items": {
+        "anyOf": [
+            { "$ref": "#/definitions/base_unit" },
+            { "$ref": "#/definitions/derived_unit" }
+        ]
+    }
+}
