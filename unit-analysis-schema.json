@@ -32,7 +32,7 @@
                     "exclusiveMinimum": 0
                 },
                 "expr": { "$ref": "#/definitions/unit_expr" }
-            }
+            },
             "required": ["name", "coef", "expr"]
         },
         "unit_expr_mul": {
@@ -63,9 +63,9 @@
             "required": ["op", "lhs", "rhs"]
         },
         "unitless": { "const": "unitless" },
-        "unit_expr": { "anyOf" [
+        "unit_expr": { "anyOf": [
             { "$ref": "#/definitions/unitless" },
-            { "$ref": "#/definitions/unit_name" }
+            { "$ref": "#/definitions/unit_name" },
             { "$ref": "#/definitions/unit_expr_mul" },
             { "$ref": "#/definitions/unit_expr_div" },
             { "$ref": "#/definitions/unit_expr_pow" }
