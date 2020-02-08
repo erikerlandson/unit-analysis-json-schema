@@ -19,7 +19,7 @@
                 "name": { "$ref": "#/definitions/unit_name" },
                 "abbv": { "$ref": "#/definitions/unit_name" }
             },
-            "required": ["name"]
+            "required": ["unit", "name"]
         },
         "derived_unit": {
             "type": "object",
@@ -33,7 +33,7 @@
                 },
                 "expr": { "$ref": "#/definitions/unit_expr" }
             },
-            "required": ["name", "coef", "expr"]
+            "required": ["unit", "name", "coef", "expr"]
         },
         "unit_expr_mul": {
             "type": "object",
