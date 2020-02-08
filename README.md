@@ -1,6 +1,9 @@
 # unit-analysis-json-schema
 JSON Schema for algorithmic unit analysis
 
+Encodes unit-analysis definitions based on the blog post
+["Algorithmic Unit Analysis"](http://erikerlandson.github.io/blog/2019/05/03/algorithmic-unit-analysis/)
+
 ### examples
 A unit analysis schema is an array of unit definitions.
 The following example shows some `"base"` and `"derived"` unit definitions.
