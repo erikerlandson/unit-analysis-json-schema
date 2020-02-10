@@ -132,7 +132,7 @@
                 "name": { "$ref": "#/definitions/nameOrNamespace" },
                 "doc": { "type": "string" },
                 "type": { "$ref": "#" },
-                "unit": { "$ref": "https://github.com/erikerlandson/unit-analysis-json-schema/blob/master/unit-analysis-schema.json#/definitions/unit_expr" },
+                "unit": { "$ref": "https://raw.githubusercontent.com/erikerlandson/unit-analysis-json-schema/master/unit-analysis-schema.json#/definitions/unit_expr" },
                 "default": {
                     "description": "default value, depending on the type"
                 },
