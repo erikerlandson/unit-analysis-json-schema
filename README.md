@@ -30,3 +30,18 @@ The following example shows some `"base"` and `"derived"` unit definitions.
   {"unit": "derived", "name": "kilo", "coef": 1000, "expr": "unitless"}
 ]
 ```
+
+Here is an Avro schema augmented with unit expressions:
+
+```json
+{
+     "type": "record",
+     "name": "demo_units",
+     "fields": [
+       { "name": "distance", "type": "number", "unit": "meter" },
+       { "name": "velocity",
+         "type": "number",
+         "unit": {"lhs": "meter", "op": "/", "rhs": "second"} }
+     ]
+}
+```
