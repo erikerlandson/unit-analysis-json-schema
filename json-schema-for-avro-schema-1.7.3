@@ -1,7 +1,12 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "avro-schema",
-    "description": "JSON Schema for an Apache Avro schema, version 1.7.3, adapted from https://github.com/fge/sample-json-schemas",
+    "description": "JSON Schema for an Apache Avro schema, version 1.7.3",
+    "notes": [
+        "Adapted from https://github.com/fge/sample-json-schemas",
+        "The Apache Avro project does not appear to define json schemas for its avro schema spec.",
+        "I'm using this as a test-bed for adding unit analysis information to Avro schema resolution."
+    ],
     "oneOf": [
         { "type": "string" },
         {
