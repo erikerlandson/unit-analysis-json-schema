@@ -35,7 +35,7 @@
             "properties": {
                 "type": { "enum": [ "record" ] },
                 "name": { "$ref": "#/definitions/nameOrNamespace" },
-                "nameOrNamespace": { "$ref": "#/definitions/namespace" },
+                "nameOrNamespace": { "$ref": "#/definitions/nameOrNamespace" },
                 "doc": { "type": "string" },
                 "aliases": { "$ref": "#/definitions/aliases" },
                 "fields": {
@@ -51,7 +51,7 @@
             "properties": {
                 "type": { "enum": [ "enum" ] },
                 "name": { "$ref": "#/definitions/nameOrNamespace" },
-                "nameOrNamespace": { "$ref": "#/definitions/namespace" },
+                "nameOrNamespace": { "$ref": "#/definitions/nameOrNamespace" },
                 "aliases": { "$ref": "#/definitions/aliases" },
                 "doc": { "type": "string" },
                 "symbols": {
@@ -104,7 +104,7 @@
             "properties": {
                 "type": { "enum": [ "fixed" ] },
                 "name": { "$ref": "#/definitions/nameOrNamespace" },
-                "nameOrNamespace": { "$ref": "#/definitions/namespace" },
+                "nameOrNamespace": { "$ref": "#/definitions/nameOrNamespace" },
                 "size": {
                     "type": "integer",
                     "minimum": 0,
