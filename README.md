@@ -38,9 +38,9 @@ Here is an Avro schema augmented with unit expressions:
      "type": "record",
      "name": "demo_units",
      "fields": [
-       { "name": "distance", "type": "number", "unit": "meter" },
+       { "name": "distance", "type": "float", "unit": "meter" },
        { "name": "velocity",
-         "type": "number",
+         "type": "float",
          "unit": {"lhs": "meter", "op": "/", "rhs": "second"} }
      ]
 }
